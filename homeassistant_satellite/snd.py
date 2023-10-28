@@ -44,7 +44,32 @@ def play_udp(
                     udp_socket.sendto(chunk, (state.mic_host, udp_port))
 
         yield play, duck_fail
+@contextlib.contextmanager
+def play_sox(
+    command: List[str],
+    volume: float = 1.0,
+):
+    """Uses sox to play a URL to an audio output device."""
+    _LOGGER.debug("play: %s", command)
 
+    def play(media: str):
+        # Spawn a new subprocess each time we play a sound
+        cmd = [
+            "play",
+            media,
+            "-v",
+            volume",
+        ]
+    with subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+    ) as proc:
+        assert proc.stdout is not None
+
+    _LOGGER.debug("play: %s", cmd)
+
+    yield play, duck_fail
 
 @contextlib.contextmanager
 def play_subprocess(

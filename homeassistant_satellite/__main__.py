@@ -134,6 +134,10 @@ async def main() -> None:
         help="Use pulseaudio (socket/hostname optionally passed as argument)",
     )
     parser.add_argument(
+        "--sox",
+        help="Use SoX (optional player)",
+    )
+    parser.add_argument(
         "--ducking-volume",
         type=float,
         help="Set output volume to this value while recording",
@@ -205,7 +209,9 @@ async def main() -> None:
     if args.echo_cancel and not args.pulseaudio:
         _LOGGER.fatal("--echo-cancel only available with --pulseaudio")
         sys.exit(1)
-
+    if args.sox and not shutil.which("sox"):
+        _LOGGER.fatal("Please install sox and libsox-fmt-all")
+        sys.exit(1)
     if args.debug_recording_dir:
         # Create directory for saving debug audio
         args.debug_recording_dir = Path(args.debug_recording_dir)
@@ -370,6 +376,12 @@ def _playback_thread_entry(
                 volume=args.volume,
                 ducking_volume=args.ducking_volume,
                 echo_cancel=args.echo_cancel,
+            )
+        elif args.sox is not None:
+            # SoX
+            play_ctx = play_sox(
+                command=args.sox,
+                volume=args.volume,
             )
         else:
             # External program
