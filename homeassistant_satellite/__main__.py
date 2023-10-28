@@ -24,6 +24,7 @@ from .snd import (
     play_pulseaudio,
     play_subprocess,
     play_udp,
+    play_sox,
 )
 from .state import MicState, State
 
@@ -135,6 +136,8 @@ async def main() -> None:
     )
     parser.add_argument(
         "--sox",
+        nargs="?",
+        const="__default__",
         help="Use SoX (optional player)",
     )
     parser.add_argument(
