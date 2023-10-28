@@ -70,8 +70,8 @@ def play_sox(
 
         _LOGGER.debug("play:ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ %s", cmd)
 
-    # yield play, duck_fail
-    yield play
+    yield play, duck_fail
+
 
 @contextlib.contextmanager
 def play_subprocess(
