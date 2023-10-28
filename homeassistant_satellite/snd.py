@@ -56,9 +56,9 @@ def play_sox(
         # Spawn a new subprocess each time we play a sound
         cmd = [
             "play",
-            media,
             "-v",
             volume,
+            media,
         ]
         _LOGGER.debug("play: %s", cmd)
         with subprocess.Popen(
@@ -68,7 +68,7 @@ def play_sox(
         ) as proc:
             assert proc.stdout is not None
 
-        _LOGGER.debug("play: %s", cmd)
+        _LOGGER.debug("play:///////////////////////////////////////////////// %s", cmd)
 
     yield play, duck_fail
 
