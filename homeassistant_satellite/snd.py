@@ -60,7 +60,7 @@ def play_sox(
             volume,
             media,
         ]
-        _LOGGER.debug("play: %s", cmd)
+        _LOGGER.debug("play:yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy %s", cmd)
         with subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
@@ -70,7 +70,8 @@ def play_sox(
 
         _LOGGER.debug("play:ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ %s", cmd)
 
-    yield play, duck_fail
+    # yield play, duck_fail
+    yield duck_fail
 
 @contextlib.contextmanager
 def play_subprocess(
