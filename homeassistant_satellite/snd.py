@@ -64,7 +64,7 @@ def play_sox(
         # with subprocess.Popen(
         subprocess.Popen(
             cmd,
-            # stdout=subprocess.PIPE,
+            # stdout=subprocess.PIPE, # return codes not needed, just fire and forget
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
