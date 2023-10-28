@@ -57,7 +57,7 @@ def play_sox(
         cmd = [
             "play",
             "-v",
-            volume,
+            str(volume),
             media,
         ]
         _LOGGER.debug("play:yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy %s", cmd)
