@@ -54,12 +54,12 @@ def play_sox(
 
     def play(media: str):
         # Spawn a new subprocess each time we play a sound
-        cmd = [
-            "play",
-            media,
-            "-v",
-            volume,
-        ]
+    cmd = [
+        "play",
+        media,
+        "-v",
+        volume,
+    ]
     with subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
