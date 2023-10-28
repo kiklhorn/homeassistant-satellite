@@ -58,7 +58,7 @@ def play_sox(
             "play",
             media,
             "-v",
-            volume",
+            volume,
         ]
     with subprocess.Popen(
         cmd,
