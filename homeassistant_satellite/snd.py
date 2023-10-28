@@ -60,6 +60,7 @@ def play_sox(
             "-v",
             volume,
         ]
+        _LOGGER.debug("play: %s", cmd)
         with subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
