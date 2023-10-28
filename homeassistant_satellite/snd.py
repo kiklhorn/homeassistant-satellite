@@ -67,7 +67,7 @@ def play_sox(
         ) as proc:
             assert proc.stdout is not None
 
-    _LOGGER.debug("play: %s", cmd)
+        _LOGGER.debug("play: %s", cmd)
 
     yield play, duck_fail
 
