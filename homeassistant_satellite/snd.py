@@ -61,13 +61,13 @@ def play_sox(
             media,
         ]
         _LOGGER.debug("play: %s", cmd)
-        with subprocess.Popen(
+        # with subprocess.Popen(
+        subprocess.Popen(
             cmd,
             # stdout=subprocess.PIPE,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-        ) as proc:
-            assert proc.stdin is not None
+        )
 
         _LOGGER.debug("play: %s", cmd)
 
