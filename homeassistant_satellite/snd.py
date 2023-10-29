@@ -62,12 +62,13 @@ def play_sox(
         ]
         _LOGGER.debug("play: %s", cmd)
         # with subprocess.Popen(
-        subprocess.Popen(
+        with subprocess.Popen(
             cmd,
-            # stdout=subprocess.PIPE, # return codes not needed, just fire and forget
-            stdout=subprocess.DEVNULL,
+            # stdout=subprocess.PIPE,
+            stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
-        )
+        ) as proc:
+            assert proc.stdout is None
 
         _LOGGER.debug("play: %s", cmd)
 
