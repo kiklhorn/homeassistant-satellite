@@ -68,7 +68,7 @@ def play_sox(
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
         ) as proc:
-            assert proc.stdout is None
+            assert proc.stdout is not None
 
         _LOGGER.debug("play: %s", cmd)
 
